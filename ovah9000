@@ -3,24 +3,23 @@ TEH OVAH 9000 CALCULATOR
 PLEASE BUILD APON THIS CODE
 */
 #include <iostream>
-using namespace std;
 
 int main(int argc, char const *argv[])
 {
 	int value=0;
-	cout << "How old are you\n";
-	cin >> value;
+	std::cout << "How old are you" << std::endl;
+	std::cin >> value;
 	if (value <= 16)
 	{
-		cout << "epic fail\n";
+		std::cout << "epic fail" << std::endl;
 	}
 		if (value >= 16)
 		{
-			cout << "ALMOST THERE\n";
+			std::cout << "ALMOST THERE" << std::endl;
 		}
 			if (value >= 9001)
 			{
-				cout << "ITS OVAH 9000\n";
+				std::cout << "ITS OVAH 9000" << std::endl;
 			}
 	return 0;
 }
