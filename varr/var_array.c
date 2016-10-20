@@ -68,13 +68,12 @@ void varr_unshift(varr_t *array, void *item, int length) {
     // Create a new positions array.
     int *new_positions = malloc((array->size + 1) * sizeof(int));
     // Copy the old position list to 1 int after the new array.
-    memcpy((int *) new_positions + sizeof(int), array->positions, array->size * sizeof(int));
-    int zero = 0;
-    memcpy(new_positions, &zero, sizeof(int));
+    memcpy((int *) (new_positions + 1), array->positions, array->size * sizeof(int));
+    new_positions[0] = 0;
     // Increase all positions by length.
-    for (int i = 1; i <= array->size; i++) {
+    for (int i = 1; i <= array->size; i++)
         new_positions[i] += length;
-    }
+
     // Free the old array.
     free(array->positions);
     // Point the positions member to the new array.
@@ -137,8 +136,13 @@ void* varr_shift(varr_t *array) {
 
     // Copy all items offsetted by the first item to the new arrays.
     memcpy(new_items, array->items + length, array->bytes - length);
-    memcpy(new_positions, array->positions + sizeof(int), (array->size - 1) * sizeof(int));
+    memcpy(new_positions, array->positions + 1, (array->size - 1) * sizeof(int));
 
+    // Decrease ("move back") all positions by length.
+    for (int loop = 0; loop < array->size-1; loop++)
+        new_positions[loop] -= length;
+
+    // Free the old pointers.
     free(array->items);
     free(array->positions);
 
