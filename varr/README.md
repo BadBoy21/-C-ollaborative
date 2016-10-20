@@ -1,15 +1,17 @@
 # Variable Sized Array With Variable Sized Items
 ---
 
-Very unfinished and untested. Please test and report any issues you find.
+## How to Use
+```c
+varr_t *arr = varr_init();
+int test = 8; // Important: you need to pass pointers to varr_* functions.
 
-Feature list:
-   - [X] Type definitions and prototypes
-   - [X] Initializing an instance
-   - [X] Push
-   - [X] Pop
-   - [ ] Shift
-   - [X] Unshift
-   - [ ] Freeing an instance
-   - [ ] Testing
+varr_push(arr, &test, sizeof(int)); // Adds to the end of the array.
+varr_unshift(arr, &test, sizeof(int)); // Adds to the beginnin of the array.
+int test2 = *((int *) varr_shift(arr)); // Removes the first item of the array and returns it.
+int test3 = *((int *) varr_pop(arr)); // Removes the first item of the array and returns it.
 
+varr_destroy(arr); // Frees memory used by the array.
+```
+
+Macros coming soon.
