@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int value=0;
+	cout << "How old are you\n";
+	cin >> value;
+	if (value <= 16)
+	{
+		cout << "epic fail\n";
+	}
+		if (value >= 16)
+		{
+			cout << "ALMOST THERE\n";
+		}
+			if (value == 9001)
+			{
+				cout << "ITS OVAH 9000\n";
+			}
+	return 0;
+}
