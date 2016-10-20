@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 		{
 			cout << "ALMOST THERE\n";
 		}
-			if (value == 9001)
+			if (value >= 9001)
 			{
 				cout << "ITS OVAH 9000\n";
 			}
