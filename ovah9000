@@ -1,25 +1,26 @@
 /*
-TEH OVAH 9000 CALCULATOR
-PLEASE BUILD APON THIS CODE
+TEH OVAH 9000 CALCULATOR - m712 edition
+PLEASE BUILD UPON THIS CODE
 */
 #include <iostream>
 
-int main(int argc, char const *argv[])
+using namespace std;
+
+int main(int argc, const char **argv)
 {
-	int value=0;
-	std::cout << "How old are you" << std::endl;
-	std::cin >> value;
-	if (value <= 16)
-	{
-		std::cout << "epic fail" << std::endl;
-	}
-		if (value >= 16)
-		{
-			std::cout << "ALMOST THERE" << std::endl;
-		}
-			if (value >= 9001)
-			{
-				std::cout << "ITS OVAH 9000" << std::endl;
-			}
-	return 0;
+    int value = 0;
+
+    cout << "How old are you" << endl;
+    cin >> value;
+
+    if (value <= 16)
+        cout << "epic fail" << endl;
+    else if (value >= 16)
+        cout << "ALMOST THERE" << endl;
+    else if (value >= 42)
+        cout << "You're the answer to life, universe, and everything. :3" << endl;
+    else if (value >= 9001)
+        cout << "ITS OVAH 9000" << endl;
+
+    return 0;
 }
